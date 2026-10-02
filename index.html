@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Albert & Yai ♡</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: #f8f1ed;
+            color: #49343b;
+            font-family: "Montserrat", sans-serif;
+            overflow-x: hidden;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        #login {
+
+            min-height: 100svh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,0.8),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(232,93,131,0.18),
+                    transparent 35%
+                ),
+                #f8e9e9;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        #login::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.25);
+
+            top: -250px;
+            right: -150px;
+        }
+
+        #login::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(231,155,177,0.12);
+
+            bottom: -200px;
+            left: -150px;
+        }
+
+        .login-box {
+
+            width: 100%;
+            max-width: 430px;
+
+            padding: 55px 45px;
+
+            background: rgba(255,255,255,0.78);
+
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 30px 80px rgba(93,53,64,0.15);
+
+            position: relative;
+
+            z-index: 2;
+
+            animation: aparecer 1s ease;
+        }
+
+        .login-heart {
+
+            font-size: 48px;
+
+            margin-bottom: 20px;
+
+            animation: latido 2s infinite;
+        }
+
+        .login-box h1 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 48px;
+
+            font-weight: 600;
+
+            color: #49343b;
+
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #a06b7b;
+
+            margin-bottom: 28px;
+        }
+
+        .login-box p {
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            color: #755963;
+
+            margin-bottom: 25px;
+        }
+
+        .login-box input {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            padding: 15px 18px;
+
+            border: 1px solid #e5c5ce;
+
+            background: rgba(255,255,255,0.8);
+
+            border-radius: 14px;
+
+            outline: none;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            color: #49343b;
+
+            margin-bottom: 12px;
+        }
+
+        .main-button {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            padding: 15px 20px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            background: #49343b;
+
+            color: white;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .main-button:hover {
+
+            background: #704d5a;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(73,52,59,0.18);
+        }
+
+        #error {
+
+            color: #b04c67;
+
+            display: none;
+
+            margin-top: 15px;
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================================
+           PAGINA
+        ========================================= */
+
+        #pagina {
+
+            display: none;
+
+            animation: aparecer 1.2s ease;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 100svh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px 22px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(55,36,42,0.35),
+                    rgba(55,36,42,0.35)
+                ),
+                linear-gradient(
+                    135deg,
+                    #d9a4b3,
+                    #efd5d2
+                );
+        }
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            border-radius: 50%;
+
+            top: -350px;
+            left: -180px;
+        }
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: white;
+
+            width: 100%;
+
+            max-width: 850px;
+        }
+
+        .small-title {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            line-height: 1.7;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(62px, 17vw, 120px);
+
+            font-weight: 500;
+
+            line-height: 0.85;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-line {
+
+            width: 65px;
+
+            height: 1px;
+
+            background: white;
+
+            margin: 0 auto 25px;
+        }
+
+        .hero p {
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            font-weight: 300;
+        }
+
+        .hero-date {
+
+            margin-top: 30px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 24px;
+
+            letter-spacing: 2px;
+        }
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            opacity: 0.7;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================
+           SECCIONES
+        ========================================= */
+
+        section {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 95px 25px;
+        }
+
+        .section-label {
+
+            text-align: center;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #ad7383;
+
+            margin-bottom: 12px;
+        }
+
+        section h2 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            text-align: center;
+
+            font-size: 55px;
+
+            font-weight: 500;
+
+            line-height: 1;
+
+            color: #49343b;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =========================================
+           CONTADOR
+        ========================================= */
+
+        .counter-section {
+
+            text-align: center;
+
+            background: #fffaf8;
+
+            max-width: none;
+
+            padding-left: 18px;
+
+            padding-right: 18px;
+        }
+
+        .counter {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+        .counter-box {
+
+            padding: 30px 15px;
+
+            border-right: 1px solid #e8d6d5;
+        }
+
+        .counter-box:last-child {
+
+            border-right: none;
+        }
+
+        .counter-number {
+
+            display: block;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 52px;
+
+            color: #704d5a;
+
+            line-height: 1;
+        }
+
+        .counter-name {
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #a07c85;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           GALERIA
+        ========================================= */
+
+        .gallery {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .photo {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 5px;
+
+            background: white;
+
+            padding: 8px;
+
+            box-shadow:
+                0 15px 35px rgba(75,50,57,0.10);
+
+            transition: 0.5s;
+        }
+
+        .photo:nth-child(even) {
+
+            margin-top: 45px;
+        }
+
+        .photo img {
+
+            width: 100%;
+
+            height: 430px;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: 0.7s;
+        }
+
+        .photo:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 25px 45px rgba(75,50,57,0.16);
+        }
+
+        .photo:hover img {
+
+            transform: scale(1.04);
+        }
+
+
+        /* =========================================
+           CANCION
+        ========================================= */
+
+        .music-section {
+
+            background: #49343b;
+
+            max-width: none;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .music-section .section-label {
+
+            color: #d8a9b7;
+        }
+
+        .music-section h2 {
+
+            color: white;
+        }
+
+        .music-card {
+
+            width: 100%;
+
+            max-width: 750px;
+
+            margin: auto;
+
+            background: #594049;
+
+            padding: 30px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.2);
+        }
+
+        .music-title {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 30px;
+
+            margin-bottom: 5px;
+        }
+
+        .music-artist {
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #d9b4bf;
+
+            margin-bottom: 25px;
+        }
+
+        .youtube-container {
+
+            width: 100%;
+
+            aspect-ratio: 16 / 9;
+
+            overflow: hidden;
+        }
+
+        .youtube {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+            display: block;
+        }
+
+
+        /* =========================================
+           CARTA
+        ========================================= */
+
+        .letter {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            background: #fffdfb;
+
+            padding: 65px;
+
+            position: relative;
+
+            box-shadow:
+                0 20px 60px rgba(73,52,59,0.08);
+
+            border: 1px solid #eee2df;
+        }
+
+        .letter::before {
+
+            content: "“";
+
+            position: absolute;
+
+            top: 10px;
+
+            left: 25px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 100px;
+
+            color: #e7c6ce;
+
+            line-height: 1;
+        }
+
+        .letter p {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 22px;
+
+            line-height: 1.7;
+
+            color: #59434b;
+        }
+
+        .letter-signature {
+
+            text-align: right;
+
+            margin-top: 35px;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            color: #704d5a;
+        }
+
+
+        /* =========================================
+           RECUERDOS
+        ========================================= */
+
+        .memories {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .memory {
+
+            background: white;
+
+            padding: 35px 22px;
+
+            min-height: 190px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            border: 1px solid #eee2df;
+
+            transition: 0.4s;
+        }
+
+        .memory:hover {
+
+            transform: translateY(-7px);
+
+            border-color: #d9abb8;
+
+            box-shadow:
+                0 15px 35px rgba(73,52,59,0.08);
+        }
+
+        .memory p {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 22px;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================
+           RAZONES
+        ========================================= */
+
+        .reasons {
+
+            width: 100%;
+
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+        .reason {
+
+            padding: 22px 0;
+
+            border-bottom: 1px solid #dfcece;
+
+            display: flex;
+
+            gap: 25px;
+
+            align-items: center;
+        }
+
+        .reason-number {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            color: #c48297;
+
+            min-width: 35px;
+        }
+
+        .reason p {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 22px;
+
+            line-height: 1.3;
+        }
+
+
+        /* =========================================
+           SORPRESA
+        ========================================= */
+
+        .surprise-section {
+
+            background: #f2dedf;
+
+            max-width: none;
+
+            text-align: center;
+        }
+
+        .surprise-section h2 {
+
+            margin-bottom: 20px;
+        }
+
+        .surprise-text {
+
+            max-width: 550px;
+
+            margin: 0 auto 30px;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .surprise-button {
+
+            width: auto;
+
+            padding: 16px 35px;
+        }
+
+        .surprise-message {
+
+            max-width: 600px;
+
+            margin: 30px auto 0;
+
+            padding: 40px;
+
+            background: rgba(255,255,255,0.65);
+
+            display: none;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            line-height: 1.5;
+
+            animation: aparecer 0.7s ease;
+        }
+
+
+        /* =========================================
+           SECRETO
+        ========================================= */
+
+        .secret {
+
+            width: 100%;
+
+            max-width: 550px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 45px;
+
+            background: white;
+
+            border: 1px solid #ead7d7;
+
+            box-shadow:
+                0 20px 50px rgba(73,52,59,0.07);
+        }
+
+        .secret-icon {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+        .secret h3 {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+        .secret p {
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            color: #80656d;
+
+            margin-bottom: 20px;
+        }
+
+        .secret input {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            padding: 15px;
+
+            border: 1px solid #dfc7cd;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            outline: none;
+
+            margin-bottom: 10px;
+
+            font-size: 14px;
+        }
+
+        .secret button {
+
+            width: 100%;
+        }
+
+        #mensajeSecreto {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #ead7d7;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 25px;
+
+            line-height: 1.6;
+
+            animation: aparecer 0.7s ease;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            background: #38282e;
+
+            color: #e8ccd3;
+        }
+
+        footer p:first-child {
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+
+        footer p:last-child {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            opacity: 0.6;
+        }
+
+
+        /* =========================================
+           CORAZONES
+        ========================================= */
+
+        .floating-heart {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 9999;
+
+            animation: subir 5s linear forwards;
+
+            font-size: 20px;
+        }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes latido {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            section {
+                padding: 80px 22px;
+            }
+
+            .memories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .photo:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .photo img {
+                height: 500px;
+            }
+
+            .letter {
+                padding: 45px 30px;
+            }
+
+            .youtube-container {
+                aspect-ratio: 16 / 10;
+            }
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        @media (max-width: 550px) {
+
+            #login {
+                padding: 18px;
+            }
+
+            .login-box {
+
+                padding: 40px 24px;
+
+                border-radius: 25px;
+            }
+
+            .login-heart {
+
+                font-size: 42px;
+
+                margin-bottom: 15px;
+            }
+
+            .login-box h1 {
+
+                font-size: 42px;
+            }
+
+            .login-subtitle {
+
+                font-size: 9px;
+
+                letter-spacing: 2px;
+            }
+
+            .login-box p {
+
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+            .login-box input,
+            .login-box .main-button {
+
+                min-height: 54px;
+            }
+
+
+            /* HERO */
+
+            .hero {
+
+                min-height: 100svh;
+
+                padding: 30px 20px;
+            }
+
+            .small-title {
+
+                max-width: 280px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+                font-size: 9px;
+
+                letter-spacing: 2.5px;
+            }
+
+            .hero h1 {
+
+                font-size: 70px;
+
+                line-height: 0.85;
+            }
+
+            .hero p {
+
+                font-size: 10px;
+
+                letter-spacing: 1.7px;
+            }
+
+            .hero-date {
+
+                font-size: 23px;
+
+                margin-top: 25px;
+            }
+
+
+            /* SECCIONES */
+
+            section {
+
+                padding: 70px 18px;
+            }
+
+            section h2 {
+
+                font-size: 43px;
+
+                line-height: 0.95;
+
+                margin-bottom: 35px;
+            }
+
+            .section-label {
+
+                font-size: 8px;
+
+                letter-spacing: 2.5px;
+            }
+
+
+            /* CONTADOR */
+
+            .counter-section {
+
+                padding: 65px 15px;
+            }
+
+            .counter-section h2 {
+
+                max-width: 330px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+            .counter {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                max-width: 350px;
+            }
+
+            .counter-box {
+
+                padding: 22px 8px;
+
+                border-right: 1px solid #e8d6d5;
+
+                border-bottom: 1px solid #e8d6d5;
+            }
+
+            .counter-box:nth-child(2),
+            .counter-box:nth-child(4) {
+
+                border-right: none;
+            }
+
+            .counter-box:nth-child(3),
+            .counter-box:nth-child(4) {
+
+                border-bottom: none;
+            }
+
+            .counter-number {
+
+                font-size: 43px;
+            }
+
+            .counter-name {
+
+                font-size: 8px;
+
+                letter-spacing: 1.5px;
+            }
+
+
+            /* GALERIA */
+
+            .gallery {
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                width: 100%;
+            }
+
+            .photo {
+
+                padding: 7px;
+
+                width: 100%;
+            }
+
+            .photo img {
+
+                width: 100%;
+
+                height: 430px;
+
+                object-fit: cover;
+            }
+
+
+            /* CANCION */
+
+            .music-section {
+
+                padding-left: 15px;
+
+                padding-right: 15px;
+            }
+
+            .music-card {
+
+                padding: 16px;
+
+                border-radius: 3px;
+            }
+
+            .music-title {
+
+                font-size: 28px;
+            }
+
+            .music-artist {
+
+                font-size: 9px;
+
+                margin-bottom: 18px;
+            }
+
+            .youtube-container {
+
+                aspect-ratio: 16 / 10;
+            }
+
+
+            /* CARTA */
+
+            .letter {
+
+                padding: 48px 22px 35px;
+
+                border-radius: 2px;
+            }
+
+            .letter::before {
+
+                left: 13px;
+
+                top: 3px;
+
+                font-size: 75px;
+            }
+
+            .letter p {
+
+                font-size: 19px;
+
+                line-height: 1.65;
+            }
+
+            .letter-signature {
+
+                font-size: 25px;
+
+                line-height: 1.2;
+
+                margin-top: 28px;
+            }
+
+
+            /* RECUERDOS */
+
+            .memories {
+
+                grid-template-columns: 1fr;
+
+                gap: 13px;
+            }
+
+            .memory {
+
+                min-height: 145px;
+
+                padding: 28px 22px;
+            }
+
+            .memory p {
+
+                font-size: 21px;
+            }
+
+
+            /* RAZONES */
+
+            .reason {
+
+                gap: 15px;
+
+                padding: 19px 0;
+
+                align-items: flex-start;
+            }
+
+            .reason-number {
+
+                min-width: 30px;
+
+                font-size: 25px;
+            }
+
+            .reason p {
+
+                font-size: 20px;
+
+                line-height: 1.35;
+            }
+
+
+            /* SORPRESA */
+
+            .surprise-section {
+
+                padding: 75px 20px;
+            }
+
+            .surprise-text {
+
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+            .surprise-button {
+
+                width: 100%;
+
+                max-width: 300px;
+            }
+
+            .surprise-message {
+
+                padding: 28px 20px;
+
+                font-size: 24px;
+
+                line-height: 1.45;
+            }
+
+
+            /* SECRETO */
+
+            .secret {
+
+                padding: 35px 22px;
+
+                border-radius: 3px;
+            }
+
+            .secret h3 {
+
+                font-size: 32px;
+            }
+
+            .secret p {
+
+                font-size: 12px;
+            }
+
+            #mensajeSecreto {
+
+                font-size: 23px;
+
+                line-height: 1.5;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+
+                padding: 50px 20px;
+            }
+
+            footer p:first-child {
+
+                font-size: 25px;
+
+                line-height: 1.2;
+            }
+
+            footer p:last-child {
+
+                font-size: 8px;
+
+                letter-spacing: 2px;
+            }
+
+        }
+
+
+        /* =========================================
+           CELULARES MUY PEQUEÑOS
+        ========================================= */
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            section h2 {
+                font-size: 38px;
+            }
+
+            .photo img {
+                height: 360px;
+            }
+
+            .letter p {
+                font-size: 18px;
+            }
+
+            .reason p {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- LOGIN -->
+
+    <div id="login">
+
+        <div class="login-box">
+
+            <div class="login-heart">
+                ♡
+            </div>
+
+            <h1>
+                Albert & Yai
+            </h1>
+
+            <div class="login-subtitle">
+                nuestro pequeño lugar
+            </div>
+
+            <p>
+                Hay un lugar aquí que solo puede abrirse
+                con una fecha que significa muchísimo para nosotros.
+            </p>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Nuestra fecha"
+            >
+
+            <button
+                class="main-button"
+                onclick="entrar()"
+            >
+                Entrar a nuestro lugar ♡
+            </button>
+
+            <p id="error">
+                Esa no es nuestra fecha 🥺
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PAGINA -->
+
+    <div id="pagina">
+
+
+        <!-- HERO -->
+
+        <header class="hero">
+
+            <div class="hero-content">
+
+                <div class="small-title">
+                    una historia que todavía estamos escribiendo
+                </div>
+
+                <h1>
+                    Albert & Yai
+                </h1>
+
+                <div class="hero-line"></div>
+
+                <p>
+                    TRES AÑOS DE NOSOTROS
+                </p>
+
+                <div class="hero-date">
+                    29 · 10 · 2023
+                </div>
+
+            </div>
+
+            <div class="scroll">
+                ↓ desplázate
+            </div>
+
+        </header>
+
+
+        <!-- CONTADOR -->
+
+        <section class="counter-section">
+
+            <div class="section-label">
+                desde aquel día
+            </div>
+
+            <h2>
+                El tiempo que llevamos juntos
+            </h2>
+
+            <div class="counter">
+
+                <div class="counter-box">
+
+                    <span
+                        class="counter-number"
+                        id="dias">
+                        0
+                    </span>
+
+                    <div class="counter-name">
+                        días
+                    </div>
+
+                </div>
+
+                <div class="counter-box">
+
+                    <span
+                        class="counter-number"
+                        id="horas">
+                        0
+                    </span>
+
+                    <div class="counter-name">
+                        horas
+                    </div>
+
+                </div>
+
+                <div class="counter-box">
+
+                    <span
+                        class="counter-number"
+                        id="minutos">
+                        0
+                    </span>
+
+                    <div class="counter-name">
+                        minutos
+                    </div>
+
+                </div>
+
+                <div class="counter-box">
+
+                    <span
+                        class="counter-number"
+                        id="segundos">
+                        0
+                    </span>
+
+                    <div class="counter-name">
+                        segundos
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALERIA -->
+
+        <section>
+
+            <div class="section-label">
+                nuestros momentos
+            </div>
+
+            <h2>
+                Recuerdos que guardo conmigo
+            </h2>
+
+            <div class="gallery">
+
+                <div class="photo">
+
+                    <img
+                        src="foto1.jpg.jpeg"
+                        alt="Nuestro recuerdo"
+                    >
+
+                </div>
+
+                <div class="photo">
+
+                    <img
+                        src="foto2.jpg.jpeg"
+                        alt="Nuestro recuerdo"
+                    >
+
+                </div>
+
+                <div class="photo">
+
+                    <img
+                        src="foto3.jpg.jpeg"
+                        alt="Nuestro recuerdo"
+                    >
+
+                </div>
+
+                <div class="photo">
+
+                    <img
+                        src="foto4.jpg.jpeg"
+                        alt="Nuestro recuerdo"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CANCION -->
+
+        <section class="music-section">
+
+            <div class="section-label">
+                nuestra canción
+            </div>
+
+            <h2>
+                Una canción para nosotros
+            </h2>
+
+            <div class="music-card">
+
+                <div class="music-title">
+                    Nuestro Sueño
+                </div>
+
+                <div class="music-artist">
+                    Grupo Niche
+                </div>
+
+                <div class="youtube-container">
+
+                    <iframe
+                        class="youtube"
+                        src="https://www.youtube.com/embed/qyGx4rxoeSg"
+                        title="Nuestra canción"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CARTA -->
+
+        <section>
+
+            <div class="section-label">
+                para ti
+            </div>
+
+            <h2>
+                Mi amor
+            </h2>
+
+            <div class="letter">
+
+                <p>
+                    Mi amor, quiero que sepas que te amo muchísimo y que estoy
+                    demasiado agradecida por estos tres años a tu lado, han
+                    sido los mejores años de mi vida, llenos de momentos,
+                    risas, aprendizajes y recuerdos que siempre voy a guardar
+                    en mi corazón.
+                </p>
+
+                <br>
+
+                <p>
+                    Gracias por estar conmigo, por cada momento que hemos
+                    compartido y por hacerme sentir tan especial. Después de
+                    todo este tiempo sigo sintiendo que eres esa persona con
+                    la que quiero compartir muchísimas cosas más.
+                </p>
+
+                <br>
+
+                <p>
+                    Tú eres el amor de mi vida y la persona más importante
+                    para mí. No sé qué nos tenga preparado el futuro, pero
+                    sí sé que quiero seguir creando recuerdos contigo y
+                    disfrutando cada etapa a tu lado.
+                </p>
+
+                <div class="letter-signature">
+                    Te amo hoy y siempre, mi negrito 💗
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECUERDOS -->
+
+        <section>
+
+            <div class="section-label">
+                nosotros
+            </div>
+
+            <h2>
+                ¿Te acuerdas de...?
+            </h2>
+
+            <div class="memories">
+
+                <div class="memory">
+
+                    <p>
+                        Todas esas conversaciones que parecían
+                        no tener final. 💗
+                    </p>
+
+                </div>
+
+                <div class="memory">
+
+                    <p>
+                        Todas las veces que nos hemos reído
+                        hasta que nos doliera la barriga.
+                    </p>
+
+                </div>
+
+                <div class="memory">
+
+                    <p>
+                        Cada abrazo, cada beso y cada momento
+                        que hemos compartido.
+                    </p>
+
+                </div>
+
+                <div class="memory">
+
+                    <p>
+                        Todo lo que hemos aprendido y vivido
+                        juntos durante estos tres años.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RAZONES -->
+
+        <section>
+
+            <div class="section-label">
+                y podría seguir...
+            </div>
+
+            <h2>
+                Algunas razones por las que te amo
+            </h2>
+
+            <div class="reasons">
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        01
+                    </div>
+
+                    <p>
+                        Porque contigo puedo ser completamente yo.
+                    </p>
+
+                </div>
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        02
+                    </div>
+
+                    <p>
+                        Porque haces especiales hasta los momentos más simples.
+                    </p>
+
+                </div>
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        03
+                    </div>
+
+                    <p>
+                        Porque amo compartir mi vida contigo.
+                    </p>
+
+                </div>
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        04
+                    </div>
+
+                    <p>
+                        Porque eres una de las personas más importantes para mí.
+                    </p>
+
+                </div>
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        05
+                    </div>
+
+                    <p>
+                        Porque hemos crecido juntos.
+                    </p>
+
+                </div>
+
+                <div class="reason">
+
+                    <div class="reason-number">
+                        06
+                    </div>
+
+                    <p>
+                        Porque todavía quiero vivir muchísimas cosas contigo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SORPRESA -->
+
+        <section class="surprise-section">
+
+            <div class="section-label">
+                espera...
+            </div>
+
+            <h2>
+                Tengo algo más para ti
+            </h2>
+
+            <p class="surprise-text">
+                Hay cosas que nunca caben completamente en una página,
+                pero esta pequeña sorpresa es una forma de recordarte
+                cuánto te amo.
+            </p>
+
+            <button
+                class="main-button surprise-button"
+                onclick="mostrarSorpresa()">
+                No hagas clic aquí 👀
+            </button>
+
+            <div
+                class="surprise-message"
+                id="sorpresa">
+
+                Te amo muchísimo, mi negrito. 💗
+
+                <br><br>
+
+                Gracias por estos tres años y por todos
+                los recuerdos que hemos creado.
+
+                <br><br>
+
+                Espero que todavía nos queden muchísimos
+                capítulos por escribir juntos. 🥹💗
+
+            </div>
+
+        </section>
+
+
+        <!-- SECRETO -->
+
+        <section>
+
+            <div class="secret">
+
+                <div class="secret-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    Hay algo más para ti...
+                </h3>
+
+                <p>
+                    Si llegaste hasta aquí, probablemente
+                    eres tú. Ahora escribe nuestra fecha.
+                </p>
+
+                <input
+                    type="password"
+                    id="claveSecreta"
+                    placeholder="Nuestra fecha"
+                >
+
+                <button
+                    class="main-button"
+                    onclick="abrirSecreto()">
+                    Descubrir ♡
+                </button>
+
+                <div id="mensajeSecreto">
+
+                    Si pudiera volver al
+                    <strong>29 de octubre de 2023</strong>,
+                    te volvería a elegir.
+
+                    <br><br>
+
+                    Y si pudiera elegir otra vez,
+                    también te elegiría a ti. 💗
+
+                    <br><br>
+
+                    Te amo hoy, mañana y siempre.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                Hecho con amor para nosotros, de tu inge 💗
+            </p>
+
+            <p>
+                Albert & Yai · 29.10.2023
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* ENTRAR */
+
+        function entrar() {
+
+            const password =
+                document.getElementById("password").value;
+
+            if (password === "29102023") {
+
+                document.getElementById("login")
+                    .style.display = "none";
+
+                document.getElementById("pagina")
+                    .style.display = "block";
+
+                crearCorazones();
+
+                window.scrollTo(0, 0);
+
+            }
+
+            else {
+
+                document.getElementById("error")
+                    .style.display = "block";
+
+            }
+
+        }
+
+
+        /* ENTER PARA ENTRAR */
+
+        document
+            .getElementById("password")
+            .addEventListener(
+                "keypress",
+                function(event) {
+
+                    if (event.key === "Enter") {
+
+                        entrar();
+
+                    }
+
+                }
+            );
+
+
+        /* CONTADOR */
+
+        const fechaInicio =
+            new Date("2023-10-29T00:00:00");
+
+        function actualizarContador() {
+
+            const ahora =
+                new Date();
+
+            const diferencia =
+                ahora - fechaInicio;
+
+            const dias =
+                Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60 * 24)
+                );
+
+            const horas =
+                Math.floor(
+                    (diferencia /
+                    (1000 * 60 * 60)) % 24
+                );
+
+            const minutos =
+                Math.floor(
+                    (diferencia /
+                    (1000 * 60)) % 60
+                );
+
+            const segundos =
+                Math.floor(
+                    (diferencia / 1000) % 60
+                );
+
+            document.getElementById("dias")
+                .textContent = dias;
+
+            document.getElementById("horas")
+                .textContent = horas;
+
+            document.getElementById("minutos")
+                .textContent = minutos;
+
+            document.getElementById("segundos")
+                .textContent = segundos;
+
+        }
+
+        setInterval(
+            actualizarContador,
+            1000
+        );
+
+        actualizarContador();
+
+
+        /* CORAZONES */
+
+        let corazonesIniciados = false;
+
+        function crearCorazones() {
+
+            if (corazonesIniciados) {
+                return;
+            }
+
+            corazonesIniciados = true;
+
+            setInterval(function() {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.classList.add(
+                    "floating-heart"
+                );
+
+                heart.textContent = "💗";
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.bottom =
+                    "-30px";
+
+                heart.style.fontSize =
+                    (15 + Math.random() * 18) + "px";
+
+                document.body.appendChild(
+                    heart
+                );
+
+                setTimeout(function() {
+
+                    heart.remove();
+
+                }, 5000);
+
+            }, 1200);
+
+        }
+
+
+        /* SORPRESA */
+
+        function mostrarSorpresa() {
+
+            const mensaje =
+                document.getElementById("sorpresa");
+
+            mensaje.style.display =
+                "block";
+
+            crearCorazones();
+
+        }
+
+
+        /* SECRETO */
+
+        function abrirSecreto() {
+
+            const clave =
+                document.getElementById(
+                    "claveSecreta"
+                ).value;
+
+            const mensaje =
+                document.getElementById(
+                    "mensajeSecreto"
+                );
+
+            if (clave === "29102023") {
+
+                mensaje.style.display =
+                    "block";
+
+                crearCorazones();
+
+            }
+
+            else {
+
+                alert(
+                    "Mmm... esa no es nuestra fecha 👀💗"
+                );
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
